@@ -29,7 +29,7 @@ function checkForm(option){
             
             })
             if(checkAll){
-                alert("Đăng ký thành công")
+                alert("Đăng ký thành công, chuyển tới trang đăng nhập.")
                 window.location.href = "dangnhap.html"
             }
             else{
