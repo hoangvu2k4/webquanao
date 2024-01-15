@@ -109,7 +109,22 @@ window.addEventListener("load", function(){
     let IndexProduct3 = 0
     var producNumber3 = productToyota3.length-1
 
-   
+    productLeft3.addEventListener("click", ()=>{
+        IndexProduct3--
+        if(IndexProduct3<0){
+            IndexProduct3 = producNumber3
+        }
+        document.querySelector(".product3-toyotaxe").style.right= IndexProduct3 *100+"%"
+    })
+    productRight3.addEventListener("click", ()=>{
+        IndexProduct3++
+        if(IndexProduct3>producNumber3){
+            IndexProduct3 = 0
+        }
+        document.querySelector(".product3-toyotaxe").style.right= IndexProduct3 *100+"%"
+    })
+})
+
 // ------------product4-------------
 
 window.addEventListener("load", function(){
@@ -174,7 +189,7 @@ window.addEventListener("load", ()=>{
         window.location.href = "../html/introduce.html"
     })
     trangchu.addEventListener("click", ()=>{
-        window.location.href = "../html/index.html"
+        window.location.href = "../index.html"
     })
     tragop.addEventListener("click", ()=>{
         window.location.href = "../html/installment.html"
@@ -184,7 +199,7 @@ window.addEventListener("load", ()=>{
         window.location.href = "../html/newcarprice.html"
     })
     sanpham.addEventListener("click", ()=>{
-        window.location.href = "../html/product.html"
+        window.location.href = "../product.html"
     })
     news.addEventListener("click", ()=>{
         window.location.href = "../html/news.html"
