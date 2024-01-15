@@ -109,22 +109,7 @@ window.addEventListener("load", function(){
     let IndexProduct3 = 0
     var producNumber3 = productToyota3.length-1
 
-    productLeft3.addEventListener("click", ()=>{
-        IndexProduct3--
-        if(IndexProduct3<0){
-            IndexProduct3 = producNumber3
-        }
-        document.querySelector(".product3-toyotaxe").style.right= IndexProduct3 *100+"%"
-    })
-    productRight3.addEventListener("click", ()=>{
-        IndexProduct3++
-        if(IndexProduct3>producNumber3){
-            IndexProduct3 = 0
-        }
-        document.querySelector(".product3-toyotaxe").style.right= IndexProduct3 *100+"%"
-    })
-})
-
+   
 // ------------product4-------------
 
 window.addEventListener("load", function(){
