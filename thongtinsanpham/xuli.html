@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặt hàng thành công</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #11ad3d;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-details {
+      margin-top: 20px;
+    }
+
+    .order-details h2 {
+      color: #333;
+      border-bottom: 2px solid #11ad3d;
+      padding-bottom: 5px;
+    }
+
+    .address-details {
+      margin-top: 15px;
+    }
+
+    .address-details p {
+      margin: 8px 0;
+    }
+
+    .confirmation-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Đặt hàng thành công</h1>
+</header>
+
+<div class="container">
+  <div class="order-details" id="orderDetails">
+    <h2>Vui lòng kiểm tra lại thông tin chính xác.</h2>
+   
+    <!-- Thêm mã JavaScript để hiển thị thông tin đơn hàng -->
+    
+    <script>
+      // Lấy thông tin đơn hàng từ Local Storage
+      var orderInfo = localStorage.getItem('orderInfo');
+      var productCode = generateProductCode(); // Tạo mã sản phẩm ngẫu nhiên
+
+      if (orderInfo) {
+        orderInfo = JSON.parse(orderInfo);
+
+        // Hiển thị thông tin địa chỉ và mã sản phẩm
+        document.getElementById('orderDetails').innerHTML +=
+          '<div class="address-details">' +
+           
+          '<p><strong>Địa chỉ:</strong> ' + orderInfo.address + '</p>' +
+          '<p><strong>Thành phố:</strong> ' + orderInfo.city + '</p>' +
+          '<p><strong>Họ tên:</strong> ' + orderInfo.ten + '</p>' +
+          '<p><strong>Mã bưu điện:</strong> ' + orderInfo.zipcode + '</p>' +
+          '<p><strong>Mã sản phẩm:</strong> ' + productCode + '</p>' +
+          '</div>';
+      } else {
+        console.log('Không có thông tin đặt hàng.');
+      }
+
+      // Hàm tạo mã sản phẩm ngẫu nhiên
+      function generateProductCode() {
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        var code = '';
+
+        for (var i = 0; i < 5; i++) {
+          var randomIndex = Math.floor(Math.random() * characters.length);
+          code += characters.charAt(randomIndex);
+        }
+
+        return code;
+      }
+    </script>
+   
+    <b>Nếu sai thông tin vui lòng liên hệ Hoàng Vũ để được xử lý sớm nhất.    </b>
+    
+    
+  </div>
+  <a href="../index.html" class="confirmation-btn">Quay lại trang chủ</a>
+</div>
+
+</body>
+</html>

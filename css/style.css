@@ -12,6 +12,19 @@
     position: relative;
     max-width: 100%;
 }
+.user-info {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    text-align: right; /* Để căn phải */
+}
+
+.user-info a {
+    margin-left: 10px; /* Khoảng cách giữa các liên kết */
+}
 header{
     position: relative;
     max-width: 1080px;

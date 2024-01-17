@@ -13,11 +13,13 @@ function searchProduct(){
         }
     }
 }
+function redirectToProductInfo(productId) {
+    // Xây dựng URL của trang thông tin sản phẩm dựa trên productId
+    var productInfoUrl = 'product-info.html?id=' + productId;
 
-var searchBox = document.querySelector(".search")
-console.log(searchBox)
-searchBox.addEventListener("keyup", searchProduct)
-
+    // Chuyển hướng trang
+    window.location.href = productInfoUrl;
+}
 
 
 window.addEventListener("load", ()=>{

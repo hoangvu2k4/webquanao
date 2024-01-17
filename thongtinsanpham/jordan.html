@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thông tin sản phẩm</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #11ad3d;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .product-image img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .product-details {
+      flex-grow: 1;
+      margin-left: 20px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    h1, h2, h3 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Thông tin sản phẩm</h1>
+</header>
+
+<div class="container">
+  <div class="product-info">
+    <div class="product-image">
+      <img src="../image/jordan.jpg" alt="Giày Boot nữ đẹp">
+    </div>
+    <div class="product-details">
+      <h2>Giày Jordan thể thao siêu rẻ</h2>
+      <p>Sale</pp>
+      <del>399.000<u>đ</u></del>
+      <p>Giá mới: 199.000 <u>đ</u></p>
+      <p>Xuất xứ: Trung Quốc</p>
+      <p>Màu sắc: Trắng xanh</p>
+      <p>Chất liệu đế: Cao su</p>
+      <p>Hình dạng của mũi giày: Mũi tròn
+        Chất liệu phần thân giày: Pu nhân tạo. Siêu nhẹ êm chân, thích hợp chơi thể thao cường độ cao.
+       </p>
+    <a href="javascript:void(0);" onclick="handleOrder()" class="buy-button" style="font-family: 'Tên_Font'; font-size: 16px; color: #ffffff; background-color: #3498db; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Đặt hàng ngay</a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal để nhập thông tin địa chỉ -->
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <h2>Nhập thông tin địa chỉ</h2>
+    <label for="address">Địa chỉ:</label>
+    <input type="text" id="address" name="address" required>
+    <br>
+    <label for="city">Thành phố:</label>
+    <input type="text" id="city" name="city" required>
+    <br>
+    <label for="ten">Họ tên:</label>
+    <input type="text" id="ten" name="ten" required>
+    <br>
+    <label for="zipcode">Mã bưu điện:</label>
+    <input type="text" id="zipcode" name="zipcode" required>
+    <br>
+    <button onclick="submitOrder()">Xác nhận đặt hàng</button>
+    <button onclick="closeModal()">Hủy</button>
+  </div>
+</div>
+
+<script>
+  function handleOrder() {
+    // Hiển thị modal khi nhấn nút "Đặt hàng ngay"
+    document.getElementById('orderModal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    // Đóng modal
+    document.getElementById('orderModal').style.display = 'none';
+  }
+
+  function submitOrder() {
+  // Lưu thông tin địa chỉ vào Local Storage
+  var productInfo = {
+    name: "KÍNH MẮT THỜI TRANG GIVENCHY",
+    price: 260000,
+    image: "../image/kinh0.jpg",
+    // Thêm các thông tin khác cần lưu trữ
+  };
+
+  var address = document.getElementById('address').value;
+  var city = document.getElementById('city').value;
+  var ten = document.getElementById('ten').value;
+  var zipcode = document.getElementById('zipcode').value;
+
+  productInfo.address = address;
+  productInfo.city = city;
+  productInfo.ten = ten; // Chắc chắn rằng trường tên được thêm vào đúng
+  productInfo.zipcode = zipcode;
+
+  // Log dữ liệu để kiểm tra
+  console.log('Thông tin đặt hàng:', JSON.stringify(productInfo));
+
+  localStorage.setItem('orderInfo', JSON.stringify(productInfo));
+
+  // Đóng modal
+  closeModal();
+
+  // Chuyển hướng tới trang xử lý đặt hàng
+  window.location.href = 'xuli.html';
+}
+
+</script>
+
+</body>
+</html>

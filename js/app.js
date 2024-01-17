@@ -173,7 +173,18 @@ window.addEventListener("load", function(){
         document.querySelector(".product5-toyotaxe").style.right= IndexProduct5 *100+"%"
     })
 })
-
+var username = "Tên người dùng"; // Thay đổi giá trị này bằng biến chứa tên người dùng
+    document.getElementById("user-info").innerHTML = '<span>Xin chào, ' + username + '</span>';
+    document.addEventListener('DOMContentLoaded', function() {
+        // Kiểm tra xem có thông tin đăng nhập hay không
+        var loggedInUser = localStorage.getItem('loggedInUser');
+    
+        // Nếu có thông tin đăng nhập, hiển thị nó
+        if (loggedInUser) {
+            var userInfoElement = document.getElementById('user-info');
+            userInfoElement.innerHTML = '<span>Xin chào, ' + loggedInUser + '</span>';
+        }
+    });
 window.addEventListener("load", ()=>{
     var gioithieu = document.querySelector("#gioithieu")
     var trangchu = document.querySelector("#trangchu")

@@ -33,7 +33,7 @@ function checkForm(option){
                 }
                 if(fullname==data.fullname && password==data.password && username==data.username){
                     alert("Đăng nhập thành công")
-                    window.location.href = "../html/index.html"
+                    window.location.href = "../index.html"
                 }
             }
             checkInput()
@@ -63,7 +63,10 @@ function checkForm(option){
         })
     }
 }
+var username = document.getElementById('fullname').value;
 
+// Lưu thông tin đăng nhập vào localStorage
+localStorage.setItem('loggedInUser', username);
 checkForm.isResquired = function(selecter){
     return {
         selecter: selecter,
